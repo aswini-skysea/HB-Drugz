@@ -5,7 +5,7 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from ANNIEMUSIC import Carbon, YouTube, app
+from ANNIEMUSIC import Carbon, YouTube, app, YTB
 from ANNIEMUSIC.core.call import JARVIS
 from ANNIEMUSIC.misc import db
 from ANNIEMUSIC.utils.database import add_active_video_chat, is_active_chat
@@ -139,6 +139,11 @@ async def stream(
         status = True if video else None
         try:
             file_path, direct = await YouTube.download(
+                vidid, mystic, videoid=True, video=status
+            )
+         except:
+        try:
+             file_path, direct = await YTB.download(
                 vidid, mystic, videoid=True, video=status
             )
         except:
