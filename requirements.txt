@@ -59,3 +59,11 @@ youtube-search-python
 youtube_dl
 yt-dlp
 search-youtube-url
+opencv-python-headless==4.9.0.80
+telethon==1.33.1
+blackpink
+pyrofork 
+phonenumbers
+mpv
+moviepy
+lyricsgenius
