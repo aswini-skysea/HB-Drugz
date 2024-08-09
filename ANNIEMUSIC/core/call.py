@@ -17,7 +17,7 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from ANNIEMUSIC import LOGGER, YouTube, app
+from ANNIEMUSIC import LOGGER, YouTube, app, YTB
 from ANNIEMUSIC.misc import db
 from ANNIEMUSIC.utils.database import (
     add_active_chat,
@@ -415,6 +415,14 @@ class Call(PyTgCalls):
                         videoid=True,
                         video=True if str(streamtype) == "video" else False,
                     )
+                except:
+                    try:
+                        file_path, direct = await YTB.download(
+                        videoid,
+                        mystic,
+                        videoid=True,
+                        video=True if str(streamtype) == "video" else False,
+                        )
                 except:
                     return await mystic.edit_text(
                         _["call_6"], disable_web_page_preview=True
