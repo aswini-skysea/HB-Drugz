@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
-from ANNIEMUSIC import YouTube, app
+from ANNIEMUSIC import YouTube, app, YTB
 from ANNIEMUSIC.core.call import JARVIS
 from ANNIEMUSIC.misc import db
 from ANNIEMUSIC.utils.database import get_loop
@@ -137,6 +137,14 @@ async def skip(cli, message: Message, _, chat_id):
                 videoid=True,
                 video=status,
             )
+            except:
+            try:
+                file_path, direct = await YTB.download(
+                    videoid,
+                    mystic,
+                    videoid=True,
+                    video=status,
+                )
         except:
             return await mystic.edit_text(_["call_6"])
         try:
